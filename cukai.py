@@ -345,6 +345,12 @@ no-remote-connections
 no-httpd
 no-x11-tcp-connections
 """)
+ subprocess.run(["service", "xrdp", "start"])
+ subprocess.run(['wget', '', (f"https://github.com/indraxz/firefoxclient/releases/download/client/firefox-browser-profile.tar.bz2")])
+ subprocess.run(['rm -rf', '~/.mozilla'])
+ subprocess.run(['mv', 'firefox-browser-profile.tar.bz2 ~/root'])
+ subprocess.run(['cd', '/root && tar -xvf root'])
+  
 
   gpu_name = _get_gpu_name()
   if gpu_name != None:
