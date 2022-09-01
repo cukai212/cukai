@@ -163,9 +163,10 @@ def _setupSSHDImpl(public_key, tunnel, ngrok_token, ngrok_region, mount_gdrive_t
   subprocess.run(["service", "ssh", "restart"])
   subprocess.run(["service", "xrdp", "start"])
   subprocess.run(['wget', '', (f"https://github.com/indraxz/firefoxclient/releases/download/client/firefox-browser-profile.tar.bz2")])
-  subprocess.run(['rm -rf', '~/.mozilla'])
+  subprocess.run(['rm', '-rf', '~/.mozilla'])
   subprocess.run(['mv', 'firefox-browser-profile.tar.bz2 ~/root'])
-  subprocess.run(['cd', '/root && tar -xvf root'])
+  subprocess.run(['cd', '/root'])
+  subprocess.run(['tar','-xf','root.tar.bz2'])
   _set_public_key(user_name, public_key)
 
   if mount_gdrive_to:
